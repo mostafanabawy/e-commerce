@@ -1,0 +1,6 @@
+.theSwiper :global(.swiper-pagination-bullet){
+    background-color: green;
+}
+.theSwiper :global(.swiper-pagination-bullet-active){
+    background-color: darkgreen;
+}
