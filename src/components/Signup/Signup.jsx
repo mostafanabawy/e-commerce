@@ -2,9 +2,12 @@ import { useFormik } from "formik"
 import { object, ref, string } from "yup"
 import signup from "../../assets/images/undraw_welcome_cats_thqn.svg"
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import toast from './../../../node_modules/react-hot-toast/src/index';
 
 
 function Signup() {
+    let navigate = useNavigate();
     let validate = object({
         name: string()
             .required("Name is required")
@@ -32,9 +35,12 @@ function Signup() {
             method: "POST",
             data: values
         }
-        console.log(values);
         let {data} = await axios.request(options)
         console.log(data);
+        if(data.message === "success"){
+            toast.success("signup is successful, please login using the new username and password");
+            navigate("/login");
+        }
     }
     let formik = useFormik({
         initialValues: {
