@@ -46,7 +46,7 @@ function Card({ cardData, wishlistData }) {
                 <img src={images[0]} className="w-full object-cover" alt="" />
                 <div className="overlay absolute inset-0 bg-black/15 flex gap-1 justify-center items-center opacity-0 transition-all group-hover:opacity-100 ">
                     <div className="icon w-10 h-10 rounded-full text-sm text-white flex justify-center items-center bg-[var(--main-color)]">
-                        <i className={"fa-solid fa-heart cursor-pointer " + (wishlistItem ? "text-red-600" : "text-white")} aria-hidden="true" onClick={async (e) => {await addToWishlist(id); e.target.classList.add("text-red-600") }}></i>
+                        <i className={"fa-solid fa-heart cursor-pointer " + (wishlistItem ? "text-red-600" : "text-white")} aria-hidden="true" onClick={async (e) => {await addToWishlist(id); e.target.css = "font-color: red" }}></i>
                     </div>
                     <div className="icon w-10 h-10 rounded-full text-sm text-white flex justify-center items-center bg-[var(--main-color)]">
                         <i className="fa-solid fa-cart-shopping cursor-pointer" onClick={() => { addToCart(id) }} aria-hidden="true"></i>
